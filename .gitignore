@@ -1,0 +1,10 @@
+.vscode
+*.html
+*.css
+*.js
+venv
+magic/*__pycache__
+magic/migrations
+magic/templates
+magic/static
+magic/migrate.py 

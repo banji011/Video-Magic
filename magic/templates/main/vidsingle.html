@@ -1,0 +1,45 @@
+{% extends 'main/layout.html' %} {% block content %}
+
+<div class="vizew-breadcrumb">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="{{ url_for('main.home') }}"
+                ><i class="fa fa-home" aria-hidden="true"></i> Home</a
+              >
+            </li>
+            <li class="breadcrumb-item">
+              <a> {{ single.category.name }} </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              {{ single.title }}
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="post-details-area mb-80">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="single-video-area">
+          <video width="100%" height="auto" controls>
+            <source
+              src="{{ url_for('static', filename='')  }}{{ single.vid }}"
+              type="video/mp4"
+            />
+            <source src="movie.ogg" type="video/ogg" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

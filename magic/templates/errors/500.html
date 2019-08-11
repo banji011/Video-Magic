@@ -1,0 +1,9 @@
+{% extends 'main/layout.html' %} {% block content %}
+<div class="error-section">
+  <h1>Something went wrong (500)</h1>
+  <p>We are experiencing some troubles on the server. Please try again later</p>
+  <h3>
+    Go <a class="btn btn-primary" href="{{ url_for('main.home') }}"> Home </a>
+  </h3>
+</div>
+{% endblock content %}

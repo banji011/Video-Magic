@@ -1,0 +1,9 @@
+{% extends 'main/layout.html' %} {% block content %}
+<div class="error-section">
+  <h1>You don't have permission to visit this page (403)</h1>
+  <p>Please ensure that you are logged in and try again</p>
+  <h3>
+    Go <a class="btn btn-primary" href="{{ url_for('main.home') }}"> Home </a>
+  </h3>
+</div>
+{% endblock content %}

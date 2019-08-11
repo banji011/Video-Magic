@@ -1,0 +1,102 @@
+{% extends 'admin/layout.html' %} {% block content %}
+
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Create New Admin</h1>
+  <p class="mb-4"></p>
+
+  <div class="container-fluid">
+    <form method="POST" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        {{ form.name.label }}
+        {% if form.name.errors %}
+        {{ form.name(class="form-control") }}
+        <div class="invalid-feedback">
+          {% for error in form.name.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.name(class="form-control") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.email.label }}
+
+        {% if form.email.errors %}
+        {{ form.email(class="form-control") }}
+        <div class="invalid-feedback">
+          {% for error in form.email.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.email(class="form-control") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.password.label }}
+
+        {% if form.password.errors %}
+        {{ form.password(class="form-control") }}
+        <div class="invalid-feedback">
+          {% for error in form.password.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.password(class="form-control") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.confirm_password.label }}
+
+        {% if form.confirm_password.errors %}
+        {{ form.confirm_password(class="form-control") }}
+        <div class="invalid-feedback">
+          {% for error in form.confirm_password.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.confirm_password(class="form-control") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.role.label }}
+
+        {% if form.role.errors %}
+        {{ form.role(class="form-control") }}
+        <div class="invalid-feedback">
+          {% for error in form.role.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.role(class="form-control") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.thumbnail.label }}
+
+        {% if form.thumbnail.errors %}
+        {{ form.thumbnail(type="file", class="form-control-file" ,accept="image/*") }}
+        <div class="invalid-feedback">
+          {% for error in form.thumbnail.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.thumbnail(type="file", class="form-control-file" ,accept="image/*") }}
+        {% endif %}
+      </div>
+
+      <div class="form-group">
+        {{ form.submit(class="btn btn-primary mb-auto")}}
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

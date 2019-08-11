@@ -1,0 +1,63 @@
+{% extends 'admin/layout.html' %} {% block content %}
+
+<div class="container-fluid">
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">All Admin</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Email</th>
+              <th>Profile Image</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Email</th>
+              <th>Profile Image</th>
+              <th></th>
+            </tr>
+          </tfoot>
+          {% for admin in admins %}
+          <tbody>
+            <tr>
+              <td>{{ admin.name }}</td>
+              <td>{{ admin.role }}</td>
+              <td>{{ admin.email }}</td>
+              <td>
+                <img
+                  src="{{ url_for('static', filename='')  }}{{
+                    admin.thumbnail
+                  }}"
+                  alt=""
+                />
+              </td>
+              {% if admin.role=="editor" %}
+              <td>
+                <a href="{{ url_for('admin.delete_admin') }}"> Delete </a>
+              </td>
+              {% else %} {% endif %}
+            </tr>
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

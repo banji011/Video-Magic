@@ -1,0 +1,254 @@
+{% extends 'main/layout.html' %}
+
+
+   {% block content %}
+   
+    <section class="vizew-post-area mb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <div class="all-posts-area">
+                        <!-- Section Heading -->
+                        <div class="section-heading style-2">
+                            <br>
+                            <h4>Featured Videos</h4>
+                            <div class="line"></div>
+                        </div>
+
+                        <!-- Featured Post Slides -->
+                        <div class="featured-post-slides owl-carousel mb-30">
+                            <!-- Single Feature Post -->     
+                            {% for post in featured %}
+                            <div class="single-feature-post video-post bg-img" style="background-image: url( {{ url_for('static', filename='') }}{{ post.thumbnail }} )">
+                                <!-- Play Button -->
+                                <a href="{{ url_for('main.single', title=post.title) }}" class="btn play-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
+
+                                <!-- Post Content -->
+                                <div class="post-content">
+                                    <a  class="post-cata"> {{ post.category.name }} </a>
+                                    <a href="{{ url_for('main.single', title=post.title) }}" class="post-title">{{post.title}}</a>
+                                   
+                                </div>
+
+                               
+                            </div>
+                            {% endfor %}
+                            
+                        </div>
+
+                        
+
+                        
+
+                        
+
+                        
+
+                       
+
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ##### Trending Posts Area Start ##### -->
+    <section class="trending-posts-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+                        <h4>Trending Videos</h4>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Single Blog Post -->
+                {% for post in trending[0:3] %}
+                <div class="col-12 col-md-4">
+                    <div class="single-post-area mb-80">
+                        <!-- Post Thumbnail -->
+                        <div class="post-thumbnail">
+                            <img src="{{ url_for('static', filename='') }}{{ post.thumbnail }}" alt="">
+                            
+                           
+                        </div>
+                        
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a  class="post-cata cata-sm cata-success"> {{post.category.name}} </a>
+                            <a href="{{ url_for('main.single', title=post.title) }}" class="post-title">{{post.title}}</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+               
+
+                <!-- Single Blog Post -->
+                
+            </div>
+
+        </div>
+    </section>
+    <!-- ##### Trending Posts Area End ##### -->
+
+    <!-- ##### Vizew Post Area Start ##### -->
+    <section class="vizew-post-area mb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <div class="all-posts-area">
+                        
+                        
+
+                       
+
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <!-- Section Heading -->
+                                <div class="section-heading style-2">
+                                    <h4>Funny </h4>
+                                    <div class="line"></div>
+                                </div>
+
+                                <!-- Sports Video Slides -->
+                                <div class="sport-video-slides owl-carousel mb-50">
+                                    <!-- Single Blog Post -->
+                                    {% for post in funny %}
+                                    <div class="single-post-area">
+                                        <!-- Post Thumbnail -->
+                                        <div class="post-thumbnail">
+                                            <img src="{{ url_for('static', filename='') }}{{ post.thumbnail }}" alt="">
+
+                                            
+                                        </div>
+
+                                        <!-- Post Content -->
+                                        <div class="post-content">
+                                            <a  class="post-cata cata-sm cata-success"> {{post.category.name}} </a>
+                                            <a href="{{ url_for('main.single', title=post.title) }}" class="post-title">{{post.title}}</a>
+                                            
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                    
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6">
+                                <!-- Section Heading -->
+                                <div class="section-heading style-2">
+                                    <h4>Lifestyle</h4>
+                                    <div class="line"></div>
+                                </div>
+
+                                <!-- Business Video Slides -->
+                                <div class="business-video-slides owl-carousel mb-50">
+                                    <!-- Single Blog Post -->
+                                    {% for post in lifestyle %}
+                                    <div class="single-post-area">
+                                        <!-- Post Thumbnail -->
+                                        <div class="post-thumbnail">
+                                            <img src="{{ url_for('static', filename='') }}{{ post.thumbnail }}" alt="">
+
+                                            
+                                        </div>
+
+                                        <!-- Post Content -->
+                                        <div class="post-content">
+                                            <a  class="post-cata cata-sm cata-primary"> {{post.category.name}} </a>
+                                            <a href="{{ url_for('main.single', title=post.title) }}" class="post-title">{{post.title}}</a>
+                                            
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <!-- Section Heading -->
+                                <div class="section-heading style-2">
+                                    <h4>Inspire</h4>
+                                    <div class="line"></div>
+                                </div>
+
+                                <!-- Sports Video Slides -->
+                                <div class="sport-video-slides owl-carousel mb-50">
+                                    <!-- Single Blog Post -->
+                                    {% for post in inspire %}
+                                    <div class="single-post-area">
+                                        
+                                        <!-- Post Thumbnail -->
+                                        <div class="post-thumbnail">
+                                            <img src="{{ url_for('static', filename='') }}{{ post.thumbnail }}" alt="">
+
+                                           
+                                        </div>
+
+                                        <!-- Post Content -->
+                                        <div class="post-content">
+                                            <a  class="post-cata cata-sm cata-success"> {{post.category.name}} </a>
+                                            <a href="{{ url_for('main.single', title=post.title) }}" class="post-title">{{post.title}}</a>
+                                           
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6">
+                                <!-- Section Heading -->
+                                <div class="section-heading style-2">
+                                    <h4>Animation</h4>
+                                    <div class="line"></div>
+                                </div>
+
+                                <!-- Business Video Slides -->
+                                <div class="business-video-slides owl-carousel mb-50">
+                                    <!-- Single Blog Post -->
+                                    {% for post in animation %}
+                                    <div class="single-post-area">
+                                        <!-- Post Thumbnail -->
+                                        <div class="post-thumbnail">
+                                            <img src="{{ url_for('static', filename='') }}{{ post.thumbnail }}" alt="">
+
+                                           
+                                        </div>
+
+                                        <!-- Post Content -->
+                                        <div class="post-content">
+                                            <a  class="post-cata cata-sm cata-primary"> {{post.category.name}} </a>
+                                            <a href="{{ url_for('main.single', title=post.title) }}" class="post-title">{{post.title}}</a>
+                                            
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    <!-- Single Blog Post -->
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                       
+
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+    {% endblock %}

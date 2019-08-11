@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+
+    {% if title %}
+    <title> Video Magic - {{ title }}  </title>
+    {% else %}
+    <title> Video Magic  </title>
+    {% endif %}
+    
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/core-img/favicon.png') }}">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/classy-nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+   
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6">
+                        
+                        
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="top-meta-data d-flex align-items-center justify-content-end">
+                            
+                            <!-- Login -->
+                             {% if phone %}
+                            <a class="login-btn"> {{ phone }} </a>
+                            <a href="{{ url_for('main.logout') }}"  class="btn btn-primary btn-danger" >
+                                Logout
+                            </a>
+                            {% else %}
+                            <a href="{{ url_for('main.login') }}" class="login-btn"><i class="fa fa-user" aria-hidden="true"></i></a>
+                            
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Subscribe
+                              </button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="vizew-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="vizewNav">
+
+                        <!-- Nav brand -->
+                        <a style="color:white;" class="nav-brand">VIDEOMAGIC</a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <div class="classy-menu">
+
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{{ url_for('main.home') }}">Home</a></li>
+                                    <li><a href="{{ url_for('main.category', name= 'Funny' ) }}">Funny</a></li>
+                                    <li><a href="{{ url_for('main.category', name= 'Lifestyle') }}">Lifestyle</a></li>
+                                    <li><a href="{{ url_for('main.category', name= 'Inspire' ) }}">Inspire</a></li>
+                                    
+                                    
+                                    <li><a href="{{ url_for('main.category', name= 'Animation' ) }}"> Animation </a></li>
+                                </ul>
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+   
+    {% block content %} 
+    
+    {% endblock %}
+    
+
+   
+
+    
+    <footer class="footer-area">
+        
+ 
+       
+        <div class="copywrite-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Copywrite Text -->
+                    <div class="col-12">
+                        <p class="copywrite-text">
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <a>Imaginarium Creative Global Limited</a>
+</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Subscribe to Audio Magic </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">Phone:</label>
+                      <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                            <select class="form-control" name="network" id="">
+                                    <option value="mtn"> MTN </option>
+                                    <option value="mtn"> 9mobile </option>
+                                    <option value="mtn"> Airtel </option>
+                            </select>
+                    </div>
+                    
+                  </form>
+            </div>
+            <div class="modal-footer">
+              
+              <button type="button" class="btn btn-primary">Subscribe</button>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+      
+    <script src="{{ url_for('static', filename='js/jquery/jquery-2.2.4.min.js') }} "></script>
+    <!-- Popper js -->
+    
+    <script src="{{ url_for('static', filename='js/bootstrap/popper.min.js') }} "></script>
+    <!-- Bootstrap js -->
+    
+    <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }} "></script>
+    <!-- All Plugins js -->
+    
+    <script src="{{ url_for('static', filename='js/plugins/plugins.js') }}"></script>
+    <!-- Active js -->
+     
+    <script src="{{ url_for('static', filename='js/active.js') }}"></script>
+</body>
+
+</html>

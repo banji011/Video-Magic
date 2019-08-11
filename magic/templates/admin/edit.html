@@ -1,0 +1,47 @@
+{% extends 'admin/layout.html' %} {% block content %}
+
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Edit Post</h1>
+  <p class="mb-4"></p>
+
+  <div class="container-fluid">
+    <form method="POST" enctype="multipart/form-data">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        {{ form.title.label }}
+
+        {% if form.title.errors %}
+        {{ form.title(class="form-control form-control-lg") }}
+        <div class="invalid-feedback">
+          {% for error in form.title.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.title(class="form-control form-control-lg") }}
+        {% endif %}
+      </div>
+
+      <div class="form-group">
+        {{ form.short_description.label }}
+
+        {% if form.short_description.errors %}
+        {{ form.short_description(class="form-control", row="3") }}
+        <div class="invalid-feedback">
+          {% for error in form.short_description.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{ form.short_description(class="form-control", row="3") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-primary mb-auto")}}
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
